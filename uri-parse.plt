@@ -1121,8 +1121,6 @@ test(m_f_zs12) :- \+uri_parse("zos://host.host/id44.a.#(id8)", _).
 
 % ---------------------------------------------------------------
 
-% DISCORD
-
 % TEST SCHEMA
 test(schema1) :- uri_parse("http://google.com", uri('http', [], 'google.com', 80, [], [], [])).
 test(schema2) :- uri_parse("h11ps://google.com", uri('h11ps', [], 'google.com', 80, [], [], [])).
