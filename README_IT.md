@@ -39,7 +39,7 @@ Esso controlla che la stringa rispetti la grammatica, e se così è ne restituis
 
 La grammatica semplificata rispettata è la seguente:
 
-```sh
+```css
 URI ::= URI1 | URI2
 
 URI1 ::= scheme ‘:’ [authorithy] [[‘/’] [path] [‘?’ query] [‘#’ fragment]]
@@ -69,25 +69,25 @@ URI2 rappresenta la grammatica da rispettare per alcuni schemi speciali. Il pars
 
 _mailto_:
 
-```sh
+```css
 scheme-syntax ::= [userinfo [‘@’ host]]
 ```
 
 _news_:
 
-```sh
+```css
 scheme-syntax ::= [host]
 ```
 
 _tel_ e _fax_:
 
-```sh
+```css
 scheme-syntax ::= [userinfo]
 ```
 
 _zos_:
 
-```sh
+```css
 scheme-syntax ::= [authorithy] [[‘/’] zospath [‘?’ query] [‘#’ fragment]]
 zospath ::= <id44> [‘(’ <id8> ‘)’]
 id44 ::= (<caratteri alfanumerici> | ‘.’)+
@@ -152,13 +152,13 @@ Una DCG, o _Definite Clause Grammar_, non è altro che "zucchero sintattico" per
 
 Per esempio, le regole:
 
-```sh
+```prolog
 a --> a, b.
 a --> [a].
 b --> [b].
 ```
 Possono essere tradotte in
-```sh
+```prolog
 a(A, C) :- a(A, B), b(B, C).
 a([a|X], X).
 b([b|X], X).
@@ -264,26 +264,26 @@ Il file di test `uri-parse.plt` contiene 1665 casi test che il programma passa c
 E' possibile personalizzare e scrivere il proprio file di test in estensione `.plt` partendo dal file già presente.
 
 All'inizio del codice principale del progetto `uri-parse.pl` è stata aggiunta la linea di codice
-```sh
+```prolog
 :- module(uri_parse, [uri_parse/2]).
 ```
 
 Per poter avviare i test.
 
 I test con esito positivo sono del tipo
-```sh
+```prolog
 test(true_scheme) :- uri_parse("s:", uri('s', [], [], 80, [], [], [])).
 ```
 
 E quelli con esito negativo
-```sh
+```prolog
 test(false_scheme) :- \+ uri_parse("s", _).
 ```
 
 Come è possibile vedere viene utilizzato l'operatore `\+` che restiituisce `true.` quando non è possibile unificare e risolvere un test sul predicato (e il terminale restituisce dunque `false.`).
 
 La struttura generale è quindi
-```sh
+```prolog
 test(id_test) :- predicato(input, risultato). | \+ predicato(input, _).
 ```
 
@@ -303,14 +303,14 @@ C:/Users/.../Directory
 ```
 
 A questo punto aprite SWI-Prolog e lanciate il comando:
-```sh
+```prolog
 working_directory(OldDir, 'NewDir').
 ```
 Che vi permetterà di spostarvi nella nuova directory `NewDir`.
 `NewDir` va ovviamente sostituito con il percorso della cartella dove avete messo i file e che avete salvato in precedenza.
 
 Dopodichè lanciate i seguenti comandi:
-```sh
+```prolog
 ['uri-parse'].
 
 load_test_files([]).
@@ -319,7 +319,7 @@ run_tests.
 ```
 
 In alternativa si può anche lanciare un singolo comando unico:
-```sh
+```prolog
 ['uri-parse'], load_test_files([]), run_tests.
 ```
 
