@@ -323,6 +323,6 @@ Alternatively, you can also run a single single command:
 ['uri-parse'], load_test_files([]), run_tests.
 ```
 
-_Note: in this case the command is `['uri-parse']`, but more generally it would be `['test_file_name']` with the name of your test file `.plt` as` test_file_name`._
+_Note: in this case the command is `['uri-parse']`, but more generally it would be `['test_file_name']` with the name of your test file `.plt` as `test_file_name`._
 
 ![Alt text](Tests.png?Raw=true "Tests")
